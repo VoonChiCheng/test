@@ -78,6 +78,7 @@ public class PaymentSuccess extends JFrame{
 //               JScrollPane scrollpane1  = new JScrollPane(p);
 //             frame.add(scrollpane1);
               //   frame.add(p);
+                 
              frame.setTitle("Payment Receipt");
            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
            

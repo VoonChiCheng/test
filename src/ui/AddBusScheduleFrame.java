@@ -25,7 +25,7 @@ public class AddBusScheduleFrame extends JFrame{
     public static String now(String dateformat){
         Calendar cal=Calendar.getInstance();
         SimpleDateFormat sdf=new SimpleDateFormat(dateformat);
-        return sdf.format(cal.getTime());
+        return sdf.format(cal.getTime());//
     }
     DateFormat dateFormat=new SimpleDateFormat("yyyy/MM/dd");
     IDGenerator2 idGenerator = new IDGenerator2("T",4);
