@@ -216,7 +216,7 @@ public class MultipleOrderConfirmation extends JFrame{
              int totalSeat = schedule.getAvailableSeat() - seat;
         orderControl.updateTicketSeat(totalSeat, schedule.getScheduleID());
                 dispose();
-                new PaymentFrame(schedule,valid,sale.getSaleID(),array,ticket,staffID,position,vs);
+//                new PaymentFrame(schedule,valid,sale.getSaleID(),array,ticket,staffID,position,vs);
             }
               else if(valid ==1){
                  Sale sale1 = orderControl.getSale(saleID);
@@ -351,7 +351,7 @@ public class MultipleOrderConfirmation extends JFrame{
            int totalSeat = schedule.getAvailableSeat() - seat;
         orderControl.updateTicketSeat(totalSeat, schedule.getScheduleID());
         dispose();
-          new PaymentFrame(schedule,valid,/*sale.getSaleID()*/saleID,array,ticket,staffID,position,vs);
+//          new PaymentFrame(schedule,valid,/*sale.getSaleID()*/saleID,array,ticket,staffID,position,vs);
              
               }}
         });
@@ -507,7 +507,7 @@ public class MultipleOrderConfirmation extends JFrame{
              int totalSeat = schedule.getAvailableSeat() - seat;
         orderControl.updateTicketSeat(totalSeat, schedule.getScheduleID());
         dispose();
-           new OrderFrame(1,sale.getSaleID(),staffID,position,vs);
+//           new OrderFrame(1,sale.getSaleID(),staffID,position,vs);
         
              }
                else if(valid ==1){
@@ -643,7 +643,7 @@ public class MultipleOrderConfirmation extends JFrame{
            int totalSeat = schedule.getAvailableSeat() - seat;
         orderControl.updateTicketSeat(totalSeat, schedule.getScheduleID());
         dispose();
-          new OrderFrame(1,sale1.getSaleID(),staffID,position,vs);
+//          new OrderFrame(1,sale1.getSaleID(),staffID,position,vs);
              }
         
               
@@ -659,11 +659,11 @@ public class MultipleOrderConfirmation extends JFrame{
                 Bus bus = orderControl.checkBusType(schedule.getBusID());
                   if(bus.getBusType().equals("Normal")){
                  dispose();
-                  new SeatSelection(schedule,valid,saleID,staffID,position,vs);
+//                  new SeatSelection(schedule,valid,saleID,staffID,position,vs);
                 }
               else if(bus.getBusType().equals("Exclusive")){
                   dispose();
-             new SeatSelectionE(schedule,valid,saleID,staffID,position,vs);
+//             new SeatSelectionE(schedule,valid,saleID,staffID,position,vs);
         
          }
             
@@ -715,7 +715,7 @@ private void setIcon() {
             int option = JOptionPane.showConfirmDialog(null,"Confirm return to the Login Page?","Confirm?",JOptionPane.WARNING_MESSAGE);
             if(option == JOptionPane.YES_OPTION){
                 dispose();
-                new LoginFrame();
+//                new LoginFrame();
                 orderControl.closeDB();
             }
             

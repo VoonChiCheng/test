@@ -18,7 +18,7 @@ private OrderControl orderControl;
         final String position = Position;
         orderControl = new OrderControl();
         vs = orderControl.getVSchedule();
-        new OrderFrame(0,"SA0",staffID,position,vs);
+//        new OrderFrame(0,"SA0",staffID,position,vs);
     }
 
     public static void main(String [] args){

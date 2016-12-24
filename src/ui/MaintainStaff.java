@@ -61,21 +61,21 @@ public class MaintainStaff extends JFrame{
  JPanel jpCenterSouth=new JPanel();
  private AddStaffFrame addFrame= null;
  private UpdateStaffFrame updateFrame=null;
- private RetrieveStaffFrame retrieveFrame=null;
- private MaintainBusSchedule scheduleFrame=null;
-   private MaintainRoute routeFrame=null;
-   private MaintainStaff thisFrame;
-   private ReportFrame reportFrame=null;
-   private TicketExchange ticketFrame=null;
-   private HomepageFrame homeFrame=null;
-   private MaintainBus busFrame=null;
+// private RetrieveStaffFrame retrieveFrame=null;
+// private MaintainBusSchedule scheduleFrame=null;
+//   private MaintainRoute routeFrame=null;
+//   private MaintainStaff thisFrame;
+//   private ReportFrame reportFrame=null;
+//   private TicketExchange ticketFrame=null;
+//   private HomepageFrame homeFrame=null;
+//   private MaintainBus busFrame=null;
  private String position;
    private String staffID;
    public MaintainStaff(){
      
  }
 public MaintainStaff(String position,String staffID){
-           thisFrame=this;
+//           thisFrame=this;
     this.position=position;
     this.staffID=staffID;
      if(position.compareTo("Staff")==0){
@@ -213,9 +213,9 @@ private class RefreshListener implements ActionListener{
         public void windowClosing(WindowEvent e){
             int option = JOptionPane.showConfirmDialog(null,"Confirm return to the Login Page?","Confirm?",JOptionPane.WARNING_MESSAGE);
             if(option == JOptionPane.YES_OPTION){
-               thisFrame.dispose();
-                new LoginFrame();
-              
+//               thisFrame.dispose();
+//                new LoginFrame();
+//              
             }
             
         }
@@ -245,21 +245,21 @@ private class RetrieveListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {                        
             if(e.getSource()==jbtRetrieve){
-                if(retrieveFrame==null)
-                    retrieveFrame=new RetrieveStaffFrame(position, staffID);
-                if(!retrieveFrame.isVisible())
-                    retrieveFrame.setVisible(true);
+//                if(retrieveFrame==null)
+//                    retrieveFrame=new RetrieveStaffFrame(position, staffID);
+//                if(!retrieveFrame.isVisible())
+//                    retrieveFrame.setVisible(true);
         }}}
 private class BusListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {                        
             if(e.getSource()==jbtBus){
-                if(busFrame==null)
-                    busFrame=new MaintainBus(position,staffID);
-                thisFrame.dispose();
-                if(!busFrame.isVisible())
-                    busFrame.setVisible(true);
+//                if(busFrame==null)
+//                    busFrame=new MaintainBus(position,staffID);
+//                thisFrame.dispose();
+//                if(!busFrame.isVisible())
+//                    busFrame.setVisible(true);
         }}}
 //private class StaffListener implements ActionListener {
 //
@@ -277,52 +277,52 @@ private class HomeListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {                        
             if(e.getSource()==jbtHome){
-                if(homeFrame==null)
-                    homeFrame=new HomepageFrame(position,staffID);
-                    thisFrame.dispose();
-                if(!homeFrame.isVisible())
-                    homeFrame.setVisible(true);
+//                if(homeFrame==null)
+//                    homeFrame=new HomepageFrame(position,staffID);
+//                    thisFrame.dispose();
+//                if(!homeFrame.isVisible())
+//                    homeFrame.setVisible(true);
         }}}
 private class RouteListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {                        
             if(e.getSource()==jbtRoute){
-                if(routeFrame==null)
-                    routeFrame=new MaintainRoute(position,staffID);
-                thisFrame.dispose();
-                if(!routeFrame.isVisible())
-                    routeFrame.setVisible(true);
+//                if(routeFrame==null)
+//                    routeFrame=new MaintainRoute(position,staffID);
+//                thisFrame.dispose();
+//                if(!routeFrame.isVisible())
+//                    routeFrame.setVisible(true);
         }}}
 private class ScheduleListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {                        
             if(e.getSource()==jbtSchedule){
-                if(scheduleFrame==null)
-                    scheduleFrame=new MaintainBusSchedule(position,staffID);
-                thisFrame.dispose();
-                if(!scheduleFrame.isVisible())
-                    scheduleFrame.setVisible(true);
+//                if(scheduleFrame==null)
+//                    scheduleFrame=new MaintainBusSchedule(position,staffID);
+//                thisFrame.dispose();
+//                if(!scheduleFrame.isVisible())
+//                    scheduleFrame.setVisible(true);
         }}}
 private class ReportListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {                        
             if(e.getSource()==jbtReport){
-                if(reportFrame==null)
-                    reportFrame=new ReportFrame(position,staffID);
-                thisFrame.dispose();
-                if(!reportFrame.isVisible())
-                    reportFrame.setVisible(true);
+//                if(reportFrame==null)
+//                    reportFrame=new ReportFrame(position,staffID);
+//                thisFrame.dispose();
+//                if(!reportFrame.isVisible())
+//                    reportFrame.setVisible(true);
         }}}
 private class OrderListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {                        
             
-                new OrderLink(position,staffID);
-                thisFrame.dispose();
+//                new OrderLink(position,staffID);
+//                thisFrame.dispose();
                
         }}
 private class ExchangeListener implements ActionListener {
@@ -330,11 +330,11 @@ private class ExchangeListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {                        
             if(e.getSource()==jbtExchange){
-                if(ticketFrame==null)
-                    ticketFrame=new TicketExchange(position,staffID);
-                    thisFrame.dispose();
-                if(!ticketFrame.isVisible())
-                    ticketFrame.setVisible(true);
+//                if(ticketFrame==null)
+//                    ticketFrame=new TicketExchange(position,staffID);
+//                    thisFrame.dispose();
+//                if(!ticketFrame.isVisible())
+//                    ticketFrame.setVisible(true);
         }}}
 private void setIcon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("bus-icon.jpg")));

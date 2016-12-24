@@ -74,9 +74,9 @@ public class PaymentSuccess extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                   JFrame frame = new JFrame();
-              PaymentReceipt p = new PaymentReceipt(r,t);
-               JScrollPane scrollpane1  = new JScrollPane(p);
-             frame.add(scrollpane1);
+//              PaymentReceipt p = new PaymentReceipt(r,t);
+//               JScrollPane scrollpane1  = new JScrollPane(p);
+//             frame.add(scrollpane1);
               //   frame.add(p);
              frame.setTitle("Payment Receipt");
            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -95,11 +95,11 @@ public class PaymentSuccess extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                JFrame frame1 = new JFrame();
-           TicketFrame f = new TicketFrame(t);
+//           TicketFrame f = new TicketFrame(t);
            
-          JScrollPane scrollpane = new JScrollPane(f);
+//          JScrollPane scrollpane = new JScrollPane(f);
 //           frame1.add(f);
-           frame1.add(scrollpane);
+//           frame1.add(scrollpane);
          frame1.setTitle("Ticket");
            frame1.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                frame1.setSize(700,800);
@@ -117,7 +117,7 @@ public class PaymentSuccess extends JFrame{
                 int option = JOptionPane.showConfirmDialog(null, "Are you sure you want to exit the current process?","Exit Process Confirmation",JOptionPane.YES_NO_OPTION);
                 if(option == JOptionPane.YES_OPTION){
                 dispose();
-                   new HomepageFrame(position,staffID);
+//                   new HomepageFrame(position,staffID);
             }
             }
            
@@ -147,7 +147,7 @@ public class PaymentSuccess extends JFrame{
             int option = JOptionPane.showConfirmDialog(null,"Confirm return to the Login Page?","Confirm?",JOptionPane.WARNING_MESSAGE);
             if(option == JOptionPane.YES_OPTION){
                 dispose();
-                new LoginFrame();
+//                new LoginFrame();
                 paymentControl.closeDB();
             }
             
