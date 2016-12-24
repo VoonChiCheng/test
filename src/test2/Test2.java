@@ -20,6 +20,7 @@ public class Test2 {
                 a = b = c = 1;
 
                 System.out.println(b);
+                System.out.println("HEHE");
     }
     
 
