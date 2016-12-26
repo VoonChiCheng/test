@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ecd0c70c-e89c-4aee-a462-cd7806962dbb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="Start" class="java.util.Date"/>
+	<parameter name="End" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[select a.Destination,count(b.ticketid)AS "Quantity of Ticket Sold"
+from busschedule a,ticket b,sales c
+where b.STATUS='Sold' and a.RTYPE='Normal' and c.SALEID=b.SALEID and a.SCHEDULEID=b.SCHEDULEID and c.SaleDate between $P{Start} and $P{End}
+group by a.DESTINATION
+Order by count(b.TICKETID) desc Fetch first 5 ROWS only]]>
+	</queryString>
+	<field name="DESTINATION" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Quantity of Ticket Sold" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="140" splitType="Stretch">
+			<staticText>
+				<reportElement x="370" y="51" width="165" height="20" uuid="6ac70b22-b168-4733-938a-b7d52e6bf019"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Fax:604-21482912]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="104" width="100" height="20" uuid="5cccfd58-827e-431a-b660-2b43cd78eee6"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Top Bus Express]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="31" width="165" height="20" uuid="9e10026a-8b72-49f7-98f8-13b94fe1a955"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tel:604-20121000]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="11" width="185" height="20" uuid="46571219-0353-4a3b-af43-40600b384e2a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[TOP BUS EXPRESS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="71" width="165" height="20" uuid="0337dc24-6d3f-4624-998f-dc638a6edd4c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[E-mail:info@topbus.com.my]]></text>
+			</staticText>
+			<image>
+				<reportElement x="1" y="0" width="213" height="115" uuid="6d80b97c-b985-461e-82dc-298523788071"/>
+				<imageExpression><![CDATA["D:\\FYP\\FYP\\src\\ui\\logo.gif"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="68" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="53" width="277" height="15" uuid="b50e989e-c0f1-462c-8e66-c8fcae2e7695"/>
+				<text><![CDATA[Destination]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="278" y="53" width="277" height="15" uuid="69bd4f5e-d595-44c0-bf88-4017fb55fe13"/>
+				<text><![CDATA[Quantity of Ticket Sold]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="1" width="555" height="1" uuid="a13abab8-cb00-4b50-94c4-b900686f76a9"/>
+			</line>
+			<staticText>
+				<reportElement x="275" y="27" width="16" height="20" uuid="81c62549-4ea2-4fec-b8f5-b15aa4d657ce"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[to]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="169" y="2" width="222" height="20" uuid="826c0d04-e7bd-4196-9f72-9ba5dbd5ca81"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Top 5 Normal Bus Route Report]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="131" y="27" width="47" height="20" uuid="c8ade3bf-8b0a-4eee-8d7a-a2507a767704"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[From]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="177" y="27" width="100" height="20" uuid="e13a751b-9179-4fba-a72d-56cd10a26686"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Start}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="301" y="27" width="100" height="20" uuid="fb2e3637-0cf7-4a2e-a399-9c86fb7809c1"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{End}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="48" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="-2" y="0" width="555" height="1" uuid="8c0d35fb-b291-48b5-934f-55ad4e919ec9"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="1" y="0" width="277" height="15" uuid="50dadb5d-8128-4db3-8636-3c6e64a5264c"/>
+				<textFieldExpression><![CDATA[$F{DESTINATION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="278" y="1" width="277" height="15" uuid="bfd72f52-5eed-4b60-a432-1bf414aff9ef"/>
+				<textFieldExpression><![CDATA[$F{Quantity of Ticket Sold}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="1" y="16" width="555" height="1" uuid="71174cc4-7b2f-4f9f-93a1-4f281f37dc0b"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="e2168431-6ffe-49a5-8542-668f43f7022b"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="483281ef-7daf-4da4-b2ec-fb85ba2f2a09"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="df8b7846-c843-4c2e-aeb7-cc61986944ff"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH.mm.ss">
+				<reportElement x="301" y="0" width="100" height="20" uuid="9987ea64-7503-480a-ab1a-21c704c3672b"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="230" y="0" width="100" height="20" uuid="d969705c-da6d-4528-b562-63de976b6662"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="157" y="0" width="73" height="20" uuid="aaa21b8f-20c2-4c38-af09-b0842569dd57"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Date Printed:]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

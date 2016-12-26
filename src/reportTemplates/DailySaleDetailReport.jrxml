@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0978e5f8-c59e-4f96-98f9-72918a40feea">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT S.destination "Destination", S.busid "Bus ID", B.bustype "Bus Type", B.plateno "Plate Number" , S.ticketprice "Price(RM)", COUNT(T.ticketid) AS QUANTITY 
+FROM BUS B,BUSSCHEDULE S,TICKET T,SALES A,PAYMENT P WHERE B.busid = S.busid
+ AND S.scheduleid = T.scheduleid AND T.saleid = A.saleid AND A.saleid = P.saleid AND T.status = 'Sold' AND P.PAYDATE = $P{parameter1}
+GROUP BY S.destination,S.busid,B.bustype,B.plateno,S.ticketprice 
+ORDER BY S.destination]]>
+	</queryString>
+	<field name="Destination" class="java.lang.String"/>
+	<field name="Bus ID" class="java.lang.String"/>
+	<field name="Bus Type" class="java.lang.String"/>
+	<field name="Plate Number" class="java.lang.String"/>
+	<field name="Price(RM)" class="java.lang.Double"/>
+	<field name="QUANTITY" class="java.lang.Integer"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="155">
+			<image>
+				<reportElement x="0" y="0" width="213" height="115" uuid="f34a3e1f-aa17-48d8-bb5f-31a58560eaeb"/>
+				<imageExpression><![CDATA["D:\\FYP\\FYP\\src\\ui\\logo.gif"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="334" y="63" width="218" height="30" uuid="fdeb9976-993e-43c5-bec7-522c21dc0be0"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Fax : 603 - 2148 2912]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="92" width="218" height="30" uuid="bdf79b5b-2f1e-47b3-8051-18f807b6ea29"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[E-mail : info@topbus.com.my]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="33" width="220" height="30" uuid="ced1b0f0-d30b-417e-99c3-fcbad2580694"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Tel : 603 - 2012 1000]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="3" width="220" height="30" uuid="ebf76cb4-7313-4541-a03b-44471c2cd153"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Top Bus Express           ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="115" width="173" height="33" uuid="df1dce38-4c3d-4b90-8cf0-dc21d9cd851c"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Top Bus Express]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-20" y="148" width="595" height="1" uuid="e7dab2e1-e108-4a1b-a01b-709cb43f43c1"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="72">
+			<staticText>
+				<reportElement x="120" y="8" width="313" height="37" uuid="386c66a2-d307-4bbb-a996-99314979d6cc"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DAILY SALES DETAILS REPORT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="35" width="184" height="37" uuid="e62a7dfd-ed31-4f15-9414-4217e838cd0d"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="249" y="35" width="143" height="26" uuid="5ece1ec6-4e1a-4581-8503-9cdd38b7a22a"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{parameter1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="fa562739-34f6-421b-8fe0-65704d2e7ba4"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="120" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="ec373cfa-b06f-4f45-a8f0-4a0f4aeff365"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Destination]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="120" y="0" width="64" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="8232e6c7-f309-4515-907e-61b7782cb93d"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bus ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="184" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="f9e199f9-9708-49bb-8154-66a204960f8d"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bus Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="276" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3193fe1b-b3d8-4057-8ca1-6993f684a184"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Plate Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="368" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="20965f23-4223-41db-8d69-24178d5db2ee"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Price(RM)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="460" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="4fc861f4-265e-4163-b091-d92da528ee2a"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[QUANTITY]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="acc9a746-9688-4110-ac18-27c456b734c6"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="11" y="0" width="119" height="20" uuid="0765bd99-345b-4cd9-ba27-2d2d7fff8af4"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Destination}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="130" y="0" width="54" height="20" uuid="c090a018-5e32-48d7-8e70-2365ef70a072"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Bus ID}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="195" y="0" width="92" height="20" uuid="8f788c15-f142-49ca-9980-9e2d7bbf664f"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Bus Type}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="287" y="0" width="81" height="20" uuid="7c59684a-851c-4fc2-9759-bee92a8b82ab"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Plate Number}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="392" y="0" width="68" height="20" uuid="1a6bf34e-a9cd-4ddb-9d98-96cdd5c3c5bc"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Price(RM)}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="502" y="0" width="50" height="20" uuid="315bab09-f336-42b8-a861-f2f7c9d72999"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{QUANTITY}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="43">
+			<textField>
+				<reportElement x="432" y="23" width="80" height="20" uuid="658e0761-1d8c-4318-b479-4da31db70340"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="512" y="23" width="40" height="20" uuid="e1aa75fd-20e7-4923-8ec2-ccb78632a3b1"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="273" y="23" width="100" height="20" uuid="e525aa3b-ff54-45a9-aa11-2de7cba3f273"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="207" y="23" width="72" height="20" uuid="e60887bf-2caa-4fde-b542-96f8f9e98f8b"/>
+				<text><![CDATA[Date Printed :]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
